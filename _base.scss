@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Raleway&display=swap');
+
+$font-logo: "Quicksand", sans-serif;
+$font-main: "Raleway", sans-serif;
+$color-dark: #497b86;
+$color-offwhite: #f2ecdc;
+$color-black: #101010;
+$color-light: #d99774;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // max-width: 2000px;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
