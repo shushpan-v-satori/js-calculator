@@ -1,9 +1,32 @@
-// .calculator {
-//     display: grid;
-//     background-color: lightgray;
-//     width: 200px;
-//     height: 200px;
-//     border: 1px solid grey;
-//     border-radius: 10px;
+.calculator {
+    background-color: $color-black;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: 40px;
+    max-width: 768px;
 
-// }
+    h1 {
+        text-align: center;
+    }
+    
+    .calculator__button {
+        padding: 20px;
+        border-radius: 710%;
+        color: $color-offwhite;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .orange {
+        background-color: $color-orange;
+    }
+
+    .grey {
+        background-color: $color-grey;
+    }
+
+    .offblack {
+        background-color: $color-offblack;
+    }
+
+}

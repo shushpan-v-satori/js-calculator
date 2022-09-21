@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.calculator {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    .calculator__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .calculator__short_row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+}
