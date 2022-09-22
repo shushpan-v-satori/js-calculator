@@ -1,4 +1,5 @@
 // User clicks a number button
+
     // User continues to click numbers
     // Each number is added to the FIRST NUMBER
     // FIRST NUMBER is shown on the screen
@@ -24,21 +25,22 @@ let firstNumber = Number(prompt("First number: "));
 let operator = prompt("Operator: ");
 let secondNumber = Number(prompt("Second number: "));
 
-// alert(`${firstNumber} ${operator} ${secondNumber}`);
-
-// CODE GOES HERE
+// calculation
 
 const availableOperators = ["-", "+", "*", "/"]
 
+//this can be removed if calculator is with buttons
 const operatorVerification = (operator) => {
 if (!availableOperators.includes(operator)) {
     alert(`Unsupported or invalid operator`);
     return;
 }
 }
-
 operatorVerification(operator);
 
+// end of removed code
+
+//basic calculations
 const sumOfNumbers = (firstNumber, secondNumber) => {
     const endResult=firstNumber+secondNumber;
     console.log(endResult);
@@ -53,15 +55,58 @@ const differenceOfNumbers = (firstNumber, secondNumber) => {
     return endResult;
 }
 
+const multiplicationOfNumbers = (firstNumber, secondNumber) => {
+    const endResult=firstNumber*secondNumber;
+    console.log(endResult);
+    alert(`${endResult}`);
+    return endResult;
+}
+
+const divisionOfNumbers = (firstNumber, secondNumber) => {
+    const endResult=firstNumber/secondNumber;
+    console.log(endResult);
+    alert(`${endResult}`);
+    return endResult;
+}
+
 const mainCalculator = (firstNumber, secondNumber, operator) => {
-    if (operator==="+") {
+    if (operator=="+") {
         sumOfNumbers (firstNumber, secondNumber);
     }
-    if (operator==="-"){
+    if (operator=="-"){
         differenceOfNumbers(firstNumber, secondNumber);
+    }
+    if (operator=="*"){
+        multiplicationOfNumbers(firstNumber, secondNumber);
+    }
+    if (operator=="/"){
+        divisionOfNumbers(firstNumber, secondNumber);
     }
 }
 
-
-
 mainCalculator(firstNumber, secondNumber, operator);
+
+//end of basic calculations
+
+// Entries on the page
+const numberButton = document.querySelectorAll(".number");
+
+const operatorButton = document.querySelectorAll(".operator");
+console.log(operatorButton);
+
+const miscButton = document.querySelectorAll(".misc");
+console.log(miscButton);
+
+const inputString = document.getElementsByClassName("input__field")
+
+
+let afirstNumber="";
+
+const firstNumberArray = numberButton.forEach((digit) =>{
+    digit.addEventListener("click", (event) => {
+        event.preventDefault();
+        afirstNumber = afirstNumber + digit.innerHTML;
+        console.log(afirstNumber);
+    });
+})
+
