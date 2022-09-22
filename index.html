@@ -4,7 +4,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
@@ -12,38 +11,39 @@
         <h1>The Amazing Calculator</h1>
         <div class="calculator">
             <div class="calculator__input">
-                <input>
+                <input type="text" class="input__field" maxlength="20">
             </div>
 
             <div class="calculator__row">
-                <p class="calculator__button grey">AC</p>
-                <p class="calculator__button grey">+/-</p>
-                <p class="calculator__button grey">%</p>
-                <p class="calculator__button orange">÷</p>
+                <button class="calculator__button misc misc--hover">AC</button>
+                <button class="calculator__button misc misc--hover">+/-</button>
+                <button class="calculator__button misc misc--hover">%</button>
+                <button class="calculator__button operator operator--hover operator--clicked ">÷</button>
             </div>
             <div class="calculator__row">
-                <p class="calculator__button offblack">7</p>
-                <p class="calculator__button offblack">8</p>
-                <p class="calculator__button offblack">9</p>
-                <p class="calculator__button orange">×</p>
+                <button type="click" class="calculator__button number number--hover">7</button>
+                <button class="calculator__button number number--hover">8</button>
+                <button class="calculator__button number number--hover">9</button>
+                <button class="calculator__button operator operator--hover operator--clicked">×</button>
             </div>
             <div class="calculator__row">
-                <p class="calculator__button offblack">4</p>
-                <p class="calculator__button offblack">5</p>
-                <p class="calculator__button offblack">6</p>
-                <p class="calculator__button orange">-</p>
+                <button class="calculator__button number number--hover">4</button>
+                <button class="calculator__button number number--hover">5</button>
+                <button class="calculator__button number number--hover">6</button>
+                <button class="calculator__button operator operator--hover operator--clicked">-</button>
             </div>
             <div class="calculator__row">
-                <p class="calculator__button offblack">1</p>
-                <p class="calculator__button offblack">2</p>
-                <p class="calculator__button offblack">3</p>
-                <p class="calculator__button orange">+</p>
+                <button class="calculator__button number number--hover">1</button>
+                <button class="calculator__button number number--hover">2</button>
+                <button class="calculator__button number number--hover">3</button>
+                <button class="calculator__button operator operator--hover operator--clicked">+</button>
             </div>
             <div class="calculator__short_row">
-                <p class="calculator__button offblack">0</p>
-                <p class="calculator__button offblack">,</p>
-                <p class="calculator__button orange">=</p>
+                <button class="calculator__button number number--hover">0</button>
+                <button class="calculator__button number number--hover">,</button>
+                <button class="calculator__button operator operator--hover operator--clicked">=</button>
             </div>
     </main>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -5,8 +5,12 @@ main {
 }
 .calculator {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
+    grid-template-rows: 3fr, 1fr 1fr 1fr 1fr 1fr;
+    .calculator__input{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
     .calculator__row {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;

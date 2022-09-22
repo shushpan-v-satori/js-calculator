@@ -1,32 +1,79 @@
+h1 {
+    text-align: center;
+    margin: 20px 40px 0px 40px;
+}
+
+
 .calculator {
     background-color: $color-black;
     border: 1px solid grey;
     border-radius: 10px;
     margin: 40px;
-    max-width: 768px;
+    // max-width: 768px;
 
-    h1 {
-        text-align: center;
+    .calculator__input {
+        background-color: $color-black;
+        font-size: 40px;
+        padding: 40px;
+        border-radius: 10px;
+
+        input {
+            background-color: $color-offblack;
+            width: 100%;
+            border: 1px solid $color-offblack;
+            border-radius: 10px;
+            font-size: 40px;
+            padding: 20px;
+            color: $color-offwhite;
+            text-align: end;
+            box-sizing: border-box;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
+        }
+
+        input:focus {
+            background-color: $color-offblack;
+            border: 1px solid $color-offblack;
+        }
+
     }
-    
+
     .calculator__button {
         padding: 20px;
-        border-radius: 710%;
+        border-radius: 70%;
         color: $color-offwhite;
         font-size: 40px;
         text-align: center;
     }
 
-    .orange {
+    .operator {
         background-color: $color-orange;
     }
 
-    .grey {
-        background-color: $color-grey;
+    .operator--hover:hover {
+        background-color: $color-light-orange;
     }
 
-    .offblack {
+    .operator--clicked:active {
+        background-color: $color-offwhite;
+        color: $color-orange;
+    }
+
+    .misc {
+        background-color: $color-grey;
+        color: $color-black;
+    }
+
+    .misc--hover:hover {
+        background-color: $color-light-grey;
+    }
+
+    .number {
         background-color: $color-offblack;
     }
 
+    .number--hover:hover{
+        background-color: $color-dark-grey;
+    }
 }
