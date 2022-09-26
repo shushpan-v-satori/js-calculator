@@ -6,7 +6,7 @@ main {
 .calculator {
     display: grid;
     grid-template-rows: 3fr, 1fr 1fr 1fr 1fr 1fr;
-    
+
     .calculator__input{
         display: flex;
         justify-content: flex-end;
@@ -19,11 +19,11 @@ main {
         padding: 20px;
     }
 
-    .calculator__short_row {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr;
-        gap: 20px;
-        padding: 20px;
-    }
+    // .calculator__short_row {
+    //     display: grid;
+    //     grid-template-columns: 2fr 1fr 1fr;
+    //     gap: 20px;
+    //     padding: 20px;
+    // }
 
 }

@@ -19,11 +19,11 @@
 
 // variables
 
-let firstNumber = null;
+let firstNumber;
 let operator = "";
 let mainOperator = "";
-let secondNumber = null;
-let myResult = null;
+let secondNumber;
+let myResult;
 let isInputStringEmpty = true;
 
 const availableOperators = ["-", "+", "×", "÷"];
@@ -60,6 +60,10 @@ const divisionOfNumbers = (firstNumber, secondNumber) => {
   return firstNumber / secondNumber;
 };
 
+const squareRoot = (firstNumber) => {
+    return Math.sqrt(firstNumber);
+}
+
 //calculator function
 
 const mainCalculator = (firstNumber, secondNumber, operator) => {
@@ -79,6 +83,9 @@ const mainCalculator = (firstNumber, secondNumber, operator) => {
       myResult = divisionOfNumbers(firstNumber, secondNumber);
     }
   }
+  if (operator == "√") {
+    myResult = squareRoot(firstNumber);
+  }
   return myResult;
 };
 //end calculations
@@ -89,8 +96,11 @@ const buttons = document.querySelectorAll(".calculator__button");
 const numberButton = document.querySelectorAll(".number");
 
 const operatorButton = document.querySelectorAll(".operator");
+console.log(operatorButton);
 
-const equalsButton = document.querySelectorAll(".operator")[4];
+const squareRootButton = document.querySelectorAll(".operator")[4];
+
+const equalsButton = document.querySelectorAll(".operator")[5];
 
 const miscButton = document.querySelectorAll(".misc");
 
@@ -112,20 +122,37 @@ clearButton.addEventListener("click", (event) => {
   myResult = null;
   operator = "";
   mainOperator = "";
+  isInputStringEmpty = true;
   console.log(
     "clear" + firstNumber + secondNumber + myResult + operator + mainOperator
   );
 });
 
-//plus minus operation
+//plus/minus operation
+plusMinusButton.addEventListener("click",(event) => {
+    event.preventDefault();
+    let inputEntry = 0;
+    inputEntry = Number(inputString.innerHTML)*(-1);
+    inputString.innerHTML=String(inputEntry);
+});
+
+//percent operation
+percentButton.addEventListener("click",(event) => {
+    event.preventDefault();
+    let inputEntry = 0;
+    inputEntry = Number(inputString.innerHTML)/100;
+    inputString.innerHTML=String(inputEntry);
+});
 
 //Enter the number from the keypad
+
 const enterNumber = numberButton.forEach((digit) => {
     digit.addEventListener("click", (event) => {
     event.preventDefault();
     if (!isInputStringEmpty) {
         inputString.innerHTML = "";
-    }
+    };
+    isInputStringEmpty = true;
     inputString.innerHTML += event.target.innerHTML;
     console.log("first" + inputString.innerHTML);
   });
@@ -136,6 +163,7 @@ const enterOperator = operatorButton.forEach((entry) => {
   entry.addEventListener("click", (event) => {
     event.preventDefault();
     operator = event.target.innerHTML;
+    isNumberClicked = false;
     if (availableOperators.includes(operator)) {
       if (mainOperator == "") {
         firstNumber = Number(inputString.innerHTML);
@@ -157,10 +185,27 @@ const enterOperator = operatorButton.forEach((entry) => {
         mainOperator = operator;
         isInputStringEmpty=false;
       }
-    } else if (operator == equalsButton.innerHTML) {
+    } 
+    else if (operator == squareRootButton.innerHTML) {
+        firstNumber = Number(inputString.innerHTML);
+        mainOperator = operator;
+        console.log(firstNumber + "---sr");
+        console.log(mainOperator + "---sr");
+        inputString.innerHTML = mainCalculator(
+            firstNumber,
+            firstNumber,
+            mainOperator
+          );
+          firstNumber = null;
+          secondNumber = null;
+          mainOperator = "";
+          operator = "";
+          isInputStringEmpty=false;
+    }
+    else if (operator == equalsButton.innerHTML) {
       secondNumber = Number(inputString.innerHTML);
-      console.log(secondNumber + "---3");
-      console.log(mainOperator + "---3");
+      console.log(secondNumber + "---4");
+      console.log(mainOperator + "---4");
       inputString.innerHTML = "";
       inputString.innerHTML = mainCalculator(
         firstNumber,
@@ -169,9 +214,11 @@ const enterOperator = operatorButton.forEach((entry) => {
       );
       firstNumber = null;
       secondNumber = null;
+      mainOperator = "";
       operator = "";
       isInputStringEmpty=false;
     }
   });
 });
+
 

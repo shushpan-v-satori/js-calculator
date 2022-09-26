@@ -89,10 +89,4 @@ main {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   padding: 20px;
-}
-.calculator .calculator__short_row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
 }/*# sourceMappingURL=main.css.map */
