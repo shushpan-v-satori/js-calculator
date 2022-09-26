@@ -2,10 +2,11 @@
 
 let firstNumber;
 let operator = "";
-let mainOperator = "";
+let mainOperator = ""; //placeholder for the operator value for multiple operations
 let secondNumber;
-let myResult;
-let isInputStringEmpty = true;
+let myResult; //result of the calculation
+let isInputStringEmpty = true; //to check if there is anything stored in the main string
+let isNumberClicked; //flag to identify that the previous click was a number
 
 const basicOperators = ["-", "+", "×", "÷"];
 const availableNumbers = [
@@ -21,7 +22,6 @@ const availableNumbers = [
   "0",
   ".",
 ];
-const operatorEqual = "=";
 
 //basic calculations
 
@@ -104,9 +104,7 @@ clearButton.addEventListener("click", (event) => {
   operator = "";
   mainOperator = "";
   isInputStringEmpty = true;
-  console.log(
-    "clear" + firstNumber + secondNumber + myResult + operator + mainOperator
-  );
+  isNumberClicked = false;
 });
 
 //plus/minus operation
@@ -116,6 +114,7 @@ plusMinusButton.addEventListener("click", (event) => {
   let inputEntry = 0;
   inputEntry = Number(inputString.innerHTML) * -1;
   inputString.innerHTML = String(inputEntry);
+  isNumberClicked = true;
 });
 
 //percent operation
@@ -125,6 +124,7 @@ percentButton.addEventListener("click", (event) => {
   let inputEntry = 0;
   inputEntry = Number(inputString.innerHTML) / 100;
   inputString.innerHTML = String(inputEntry);
+  isNumberClicked = true;
 });
 
 //Enter the number from the keypad
@@ -133,19 +133,31 @@ const enterNumber = numberButton.forEach((digit) => {
   digit.addEventListener("click", (event) => {
     event.preventDefault();
     if (!isInputStringEmpty) {
-      inputString.innerHTML = "";
+      inputString.innerHTML = ""; //clenup values fromt the Input on the click of the first number
     }
     isInputStringEmpty = true;
+    isNumberClicked = true;
     inputString.innerHTML += event.target.innerHTML;
     console.log("first" + inputString.innerHTML);
   });
 });
 
-//Enter the operator on a keypad, store the number and operator, cleanup entry field
+//Enter the operator on a keypad, store the number and operator, perform calculation, show the result
+
 const enterOperator = operatorButton.forEach((entry) => {
   entry.addEventListener("click", (event) => {
     event.preventDefault();
     operator = event.target.innerHTML;
+    if (!isNumberClicked) { //preventing double click of the operator
+        firstNumber = null;
+        secondNumber = null;
+        myResult = null;
+        operator = "";
+        mainOperator = "";
+        inputString.innerHTML = "0";
+        isInputStringEmpty = false;
+        return;
+    }
     isNumberClicked = false;
     if (basicOperators.includes(operator)) {
       if (mainOperator == "") {
