@@ -1,22 +1,3 @@
-// User clicks a number button
-// + User continues to click numbers
-// + Each number is added to the FIRST NUMBER
-// + FIRST NUMBER is shown on the screen
-// User clicks an operator button
-// + OPERATOR is stored in a variable
-// User clicks more number buttons
-// Creating SECOND NUMBER
-// SECOND NUMBER is shown on the screen
-// User clicks equals button
-// CALCULATE function uses FIRST NUMBER, SECOND NUMBER and OPERATOR to create the RESULT
-// RESULT is shown on the screen
-
-// CALCULATE FUNCTION
-// - can ADD, SUBTRACT, DIVIDE or MULTIPLY
-// - can PERCENTAGE
-// - can SQUARE ROOT
-// - can handle three or more numbers
-
 // variables
 
 let firstNumber;
@@ -26,7 +7,7 @@ let secondNumber;
 let myResult;
 let isInputStringEmpty = true;
 
-const availableOperators = ["-", "+", "×", "÷"];
+const basicOperators = ["-", "+", "×", "÷"];
 const availableNumbers = [
   "1",
   "2",
@@ -61,8 +42,8 @@ const divisionOfNumbers = (firstNumber, secondNumber) => {
 };
 
 const squareRoot = (firstNumber) => {
-    return Math.sqrt(firstNumber);
-}
+  return Math.sqrt(firstNumber);
+};
 
 //calculator function
 
@@ -129,29 +110,31 @@ clearButton.addEventListener("click", (event) => {
 });
 
 //plus/minus operation
-plusMinusButton.addEventListener("click",(event) => {
-    event.preventDefault();
-    let inputEntry = 0;
-    inputEntry = Number(inputString.innerHTML)*(-1);
-    inputString.innerHTML=String(inputEntry);
+
+plusMinusButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  let inputEntry = 0;
+  inputEntry = Number(inputString.innerHTML) * -1;
+  inputString.innerHTML = String(inputEntry);
 });
 
 //percent operation
-percentButton.addEventListener("click",(event) => {
-    event.preventDefault();
-    let inputEntry = 0;
-    inputEntry = Number(inputString.innerHTML)/100;
-    inputString.innerHTML=String(inputEntry);
+
+percentButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  let inputEntry = 0;
+  inputEntry = Number(inputString.innerHTML) / 100;
+  inputString.innerHTML = String(inputEntry);
 });
 
 //Enter the number from the keypad
 
 const enterNumber = numberButton.forEach((digit) => {
-    digit.addEventListener("click", (event) => {
+  digit.addEventListener("click", (event) => {
     event.preventDefault();
     if (!isInputStringEmpty) {
-        inputString.innerHTML = "";
-    };
+      inputString.innerHTML = "";
+    }
     isInputStringEmpty = true;
     inputString.innerHTML += event.target.innerHTML;
     console.log("first" + inputString.innerHTML);
@@ -164,14 +147,14 @@ const enterOperator = operatorButton.forEach((entry) => {
     event.preventDefault();
     operator = event.target.innerHTML;
     isNumberClicked = false;
-    if (availableOperators.includes(operator)) {
+    if (basicOperators.includes(operator)) {
       if (mainOperator == "") {
         firstNumber = Number(inputString.innerHTML);
         mainOperator = operator;
         console.log(firstNumber + "---1");
         console.log(mainOperator + "---1");
         inputString.innerHTML = "";
-        isInputStringEmpty=true;
+        isInputStringEmpty = true;
       } else {
         secondNumber = Number(inputString.innerHTML);
         console.log(secondNumber + "---2");
@@ -183,26 +166,24 @@ const enterOperator = operatorButton.forEach((entry) => {
         );
         firstNumber = mainCalculator(firstNumber, secondNumber, mainOperator);
         mainOperator = operator;
-        isInputStringEmpty=false;
+        isInputStringEmpty = false;
       }
-    } 
-    else if (operator == squareRootButton.innerHTML) {
-        firstNumber = Number(inputString.innerHTML);
-        mainOperator = operator;
-        console.log(firstNumber + "---sr");
-        console.log(mainOperator + "---sr");
-        inputString.innerHTML = mainCalculator(
-            firstNumber,
-            firstNumber,
-            mainOperator
-          );
-          firstNumber = null;
-          secondNumber = null;
-          mainOperator = "";
-          operator = "";
-          isInputStringEmpty=false;
-    }
-    else if (operator == equalsButton.innerHTML) {
+    } else if (operator == squareRootButton.innerHTML) {
+      firstNumber = Number(inputString.innerHTML);
+      mainOperator = operator;
+      console.log(firstNumber + "---sr");
+      console.log(mainOperator + "---sr");
+      inputString.innerHTML = mainCalculator(
+        firstNumber,
+        firstNumber,
+        mainOperator
+      );
+      firstNumber = null;
+      secondNumber = null;
+      mainOperator = "";
+      operator = "";
+      isInputStringEmpty = false;
+    } else if (operator == equalsButton.innerHTML) {
       secondNumber = Number(inputString.innerHTML);
       console.log(secondNumber + "---4");
       console.log(mainOperator + "---4");
@@ -216,9 +197,7 @@ const enterOperator = operatorButton.forEach((entry) => {
       secondNumber = null;
       mainOperator = "";
       operator = "";
-      isInputStringEmpty=false;
+      isInputStringEmpty = false;
     }
   });
 });
-
-
