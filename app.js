@@ -77,7 +77,6 @@ const buttons = document.querySelectorAll(".calculator__button");
 const numberButton = document.querySelectorAll(".number");
 
 const operatorButton = document.querySelectorAll(".operator");
-console.log(operatorButton);
 
 const squareRootButton = document.querySelectorAll(".operator")[4];
 
