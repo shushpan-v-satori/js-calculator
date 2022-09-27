@@ -162,14 +162,14 @@ const enterOperator = operatorButton.forEach((entry) => {
       if (mainOperator == "") {
         firstNumber = Number(inputString.innerHTML);
         mainOperator = operator;
-        console.log(firstNumber + "---1");
-        console.log(mainOperator + "---1");
+        // console.log(firstNumber + "---1");
+        // console.log(mainOperator + "---1");
         inputString.innerHTML = "";
         isInputStringEmpty = true;
       } else {
         secondNumber = Number(inputString.innerHTML);
-        console.log(secondNumber + "---2");
-        console.log(mainOperator + "---2");
+        // console.log(secondNumber + "---2");
+        // console.log(mainOperator + "---2");
         inputString.innerHTML = mainCalculator(
           firstNumber,
           secondNumber,
@@ -182,8 +182,8 @@ const enterOperator = operatorButton.forEach((entry) => {
     } else if (operator == squareRootButton.innerHTML) {
       firstNumber = Number(inputString.innerHTML);
       mainOperator = operator;
-      console.log(firstNumber + "---sr");
-      console.log(mainOperator + "---sr");
+    //   console.log(firstNumber + "---sr");
+    //   console.log(mainOperator + "---sr");
       inputString.innerHTML = mainCalculator(
         firstNumber,
         firstNumber,
@@ -196,8 +196,8 @@ const enterOperator = operatorButton.forEach((entry) => {
       isInputStringEmpty = false;
     } else if (operator == equalsButton.innerHTML) {
       secondNumber = Number(inputString.innerHTML);
-      console.log(secondNumber + "---4");
-      console.log(mainOperator + "---4");
+    //   console.log(secondNumber + "---4");
+    //   console.log(mainOperator + "---4");
       inputString.innerHTML = "";
       inputString.innerHTML = mainCalculator(
         firstNumber,
