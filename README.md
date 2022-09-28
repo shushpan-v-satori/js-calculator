@@ -48,5 +48,5 @@ This project is not licensed
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-https://www.w3schools.com/
-http://conniefinkelman.com/building-a-js-calculator/ 
+* https://www.w3schools.com/
+* http://conniefinkelman.com/building-a-js-calculator/ 
